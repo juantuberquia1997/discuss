@@ -4,6 +4,7 @@
 import { Button, Popover, PopoverContent, PopoverTrigger, Input, Textarea } from '@nextui-org/react'
 import { createPost } from "@/actions/createPost"
 import { useFormState } from 'react-dom'
+import { div, form } from 'framer-motion/client'
 
 const FormCreatePost = () => {
   const [formState, action] = useFormState(createPost, {
@@ -32,12 +33,9 @@ const FormCreatePost = () => {
                 label="Name"
                 variant="bordered"
                 className="max-w-xs"
+                isInvalid={!!formState?.errors?.name}
+                errorMessage={formState?.errors?.name?.[0]}
               />
-              {
-                formState?.errors?.name?.[0]
-                  ? <div className='my-2 p-2 bg-red-200 border rounded border-red-400'> {formState.errors.name?.[0]} </div>
-                  : null
-              }
               <Textarea
                 name='description'
                 placeholder='describe your topic'
@@ -45,13 +43,14 @@ const FormCreatePost = () => {
                 label="Description"
                 variant="bordered"
                 className="max-w-xs"
+                isInvalid={!!formState?.errors?.description}
+                errorMessage={formState?.errors?.description?.[0]}
               />
-              {
-                formState?.errors?.description?.[0]
-                  ? <div className='my-2 p-2 bg-red-200 border rounded border-red-400'> {formState.errors.description?.[0]} </div>
-                  : null
+              {formState?.errors?._form
+                ? <div className='p-2 bg-red-200 border border-red-400 mb-3'>{formState?.errors?._form?.join(", ")}</div>
+                : null
               }
-              <Button color="primary" type="submit" radius="md" variant="shadow" className='w-full'> Submit </Button>
+              <Button color="primary" type="submit" radius="md" variant="shadow" className='w-full' > Submit </Button>
             </form>
           </div>
         </PopoverContent>

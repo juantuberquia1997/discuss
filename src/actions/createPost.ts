@@ -1,6 +1,9 @@
 'use server'
 import { db } from "../db/index"
 import { z } from "zod"
+import { auth } from "@/auth"
+import { error } from "node:console"
+import Result_ from "postcss/lib/result"
 
 
 let schema = z.object({
@@ -11,7 +14,8 @@ let schema = z.object({
 interface CreatePost {
   errors: {
     name?: string[]
-    description?: string[]
+    description?: string[];
+    _form?: string[]
   }
 }
 
@@ -21,13 +25,24 @@ export const createPost = async (formState: CreatePost, formData: FormData): Pro
   let description = formData.get("description") as string
   const result = schema.safeParse({ name, description })
 
-  console.log("formstates", formState)
-
   if (!result.success) {
     return {
       errors: result.error.flatten().fieldErrors
     }
   }
+
+  let session = await auth()
+
+  if(!session || !!session?.user) {
+
+    console.log("entraaa")
+    return{
+      errors:{
+        _form:["You must be login to create a topic"]
+      }
+    }
+  }
+
 
   return {
     errors: {}
