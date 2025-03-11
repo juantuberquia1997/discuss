@@ -43,8 +43,6 @@ export const createTopic = async (formState: CreatePost, formData: FormData): Pr
     }
   }
 
-  console.log("dataa", result)
-
   try {
   topic= await db.topic.create({
       data: {
@@ -52,7 +50,6 @@ export const createTopic = async (formState: CreatePost, formData: FormData): Pr
         description: result.data.description,
       }
     })
-    console.log("topiccc", topic)
   } catch (error) {
     return{
       errors: {
