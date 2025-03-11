@@ -2,11 +2,11 @@
 "use client"
 
 import { Button, Popover, PopoverContent, PopoverTrigger, Input, Textarea } from '@nextui-org/react'
-import { createPost } from "@/actions/createPost"
+import { createTopic } from "@/actions/createTopic"
 import { useFormState } from 'react-dom'
 
 const FormCreatePost = () => {
-  const [formState, action] = useFormState(createPost, {
+  const [formState, action] = useFormState(createTopic, {
     errors: {}
   })
 
