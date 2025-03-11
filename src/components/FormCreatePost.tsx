@@ -4,7 +4,6 @@
 import { Button, Popover, PopoverContent, PopoverTrigger, Input, Textarea } from '@nextui-org/react'
 import { createPost } from "@/actions/createPost"
 import { useFormState } from 'react-dom'
-import { div, form } from 'framer-motion/client'
 
 const FormCreatePost = () => {
   const [formState, action] = useFormState(createPost, {
