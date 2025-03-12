@@ -4,13 +4,12 @@
 import { Button, Popover, PopoverContent, PopoverTrigger, Input, Textarea } from '@nextui-org/react'
 import { createTopic } from "@/actions/createTopic"
 import { useFormState } from 'react-dom'
+import FormButton from "@/components/common/Button"
 
 const FormCreatePost = () => {
   const [formState, action] = useFormState(createTopic, {
     errors: {}
   })
-
-  console.log("formState", formState)
 
   return (
     <div className='w-30 bg-slate-200 ml-auto rounded-lg p-2'>
@@ -49,7 +48,9 @@ const FormCreatePost = () => {
                 ? <div className='p-2 bg-red-200 border border-red-400 mb-3'>{formState?.errors?._form?.join(", ")}</div>
                 : null
               }
-              <Button color="primary" type="submit" radius="md" variant="shadow" className='w-full' > Submit </Button>
+              <FormButton>
+                Save Topic
+              </FormButton>
             </form>
           </div>
         </PopoverContent>
