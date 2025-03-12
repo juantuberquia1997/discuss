@@ -23,7 +23,6 @@ interface CreatePost {
 
 export const createTopic = async (formState: CreatePost, formData: FormData): Promise<CreatePost> => {
 
-  
   let name = formData.get("name") as string
   let description = formData.get("description") as string
   const result = schema.safeParse({ name, description })

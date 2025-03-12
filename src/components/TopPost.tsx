@@ -1,6 +1,7 @@
+
 import React from 'react'
 
-const ListPost = () => {
+const TopPost = () => {
   return (
     <div>
       <h1>Top post</h1>
@@ -8,4 +9,4 @@ const ListPost = () => {
   )
 }
 
-export default ListPost
+export default TopPost

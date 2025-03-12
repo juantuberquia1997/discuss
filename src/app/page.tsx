@@ -1,16 +1,17 @@
 
-import paths from "@/path"
 import FormCreatePost from "@/components/FormCreatePost"
-import ListPost from "@/components/ListPost"
-
+import TopPost from "@/components/TopPost"
+import ListTopics from "@/components/ListTopics"
 
 export default function Home() {
-
   return (
     <div className='flex gap-x-3 px-4 py-4'>
       <div className="flex justify-between w-full">
-        <ListPost />
-        <FormCreatePost />
+        <TopPost />
+        <div>
+          <FormCreatePost />
+          <ListTopics />
+        </div>
       </div>
     </div>
 
