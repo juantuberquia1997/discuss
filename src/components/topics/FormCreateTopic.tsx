@@ -6,7 +6,7 @@ import { createTopic } from "@/actions/createTopic"
 import { useFormState } from 'react-dom'
 import FormButton from "@/components/common/Button"
 
-const FormCreatePost = () => {
+const FormCreateTopic = () => {
   const [formState, action] = useFormState(createTopic, {
     errors: {}
   })
@@ -59,4 +59,4 @@ const FormCreatePost = () => {
   )
 }
 
-export default FormCreatePost
+export default FormCreateTopic

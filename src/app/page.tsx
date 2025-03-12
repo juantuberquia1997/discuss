@@ -1,7 +1,7 @@
 
-import FormCreatePost from "@/components/FormCreatePost"
+import FormCreateTopic from "@/components/topics/FormCreateTopic"
 import TopPost from "@/components/TopPost"
-import ListTopics from "@/components/ListTopics"
+import ListTopics from "@/components/topics/ListTopics"
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <div className="flex justify-between w-full">
         <TopPost />
         <div>
-          <FormCreatePost />
+          <FormCreateTopic />
           <ListTopics />
         </div>
       </div>
