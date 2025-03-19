@@ -13,7 +13,7 @@ let schema = z.object({
   description: z.string().min(10)
 })
 
-interface CreatePost {
+interface CreateTopic {
   errors: {
     name?: string[]
     description?: string[];
@@ -21,7 +21,7 @@ interface CreatePost {
   }
 }
 
-export const createTopic = async (formState: CreatePost, formData: FormData): Promise<CreatePost> => {
+export const createTopic = async (formState: CreateTopic, formData: FormData): Promise<CreateTopic> => {
 
   let name = formData.get("name") as string
   let description = formData.get("description") as string

@@ -6,7 +6,7 @@ interface Props {
 }
 const ShowPost = ({ params: { postId } }: Props) => {
   return (
-    <div>show topic page {postId}</div>
+    <div>show post page with id: {postId}</div>
   )
 }
 
