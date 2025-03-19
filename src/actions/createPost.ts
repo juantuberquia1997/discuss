@@ -30,9 +30,6 @@ export const createPost = async (slug: string, formState: CreatePost, formData: 
 	let session = await auth()
 	let post: Post, topic
 
-
-	console.log("aquii",result)
-
 	if (!result.success) {
 		return {
 			errors: result.error.flatten().fieldErrors
@@ -61,9 +58,6 @@ export const createPost = async (slug: string, formState: CreatePost, formData: 
 		}
 	}
 	
-	console.log("topiccx", slug, topic)
-
-
 	try {
 		post = await db.post.create({
 			data: {
